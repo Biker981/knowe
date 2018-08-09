@@ -1,0 +1,75 @@
+.portfolioGridContatiner {
+	min-height: 1000px;
+	background-color: purple;
+	display: grid;
+	grid-template-areas: 'pBody pBody pBody pBody pBody pBody pBody pBody pBody tabs'
+						 'pBody pBody pBody pBody pBody pBody pBody pBody pBody tabs'
+						 'pBody pBody pBody pBody pBody pBody pBody pBody pBody tabs'
+						 'pBody pBody pBody pBody pBody pBody pBody pBody pBody tabs'
+						 'pBody pBody pBody pBody pBody pBody pBody pBody pBody tabs'
+						 'pBody pBody pBody pBody pBody pBody pBody pBody pBody empty'
+						 'pBody pBody pBody pBody pBody pBody pBody pBody pBody empty'
+						 'pBody pBody pBody pBody pBody pBody pBody pBody pBody empty'
+						 'pBody pBody pBody pBody pBody pBody pBody pBody pBody empty';
+}
+
+.portfolioEmptySpace {
+	grid-area: empty;
+}
+.tabs {
+	grid-area: tabs;
+	display: flex;
+	flex-direction: column;
+	/*float: right;*/
+	/*justify-content: flex-end;*//*space-around*/;
+	/*transform-origin: 100% 50% 0;
+	transform: rotate(270deg);*/
+}
+
+
+.tabs div {
+	justify-content: right;
+	font-size: 1.2em;
+	vertical-align: center;
+	text-align: center;
+	padding: 10% 0%;
+	margin: 0%;
+	clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+	/*To Make Tabs Look Like Trapezoids
+	border-bottom: 50px solid #555;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	height: 0;
+	width: 125px;*/
+}
+
+#portfolioBody {
+	grid-area: pBody;
+}
+.portfolioSummary {
+	background-color: blue;
+	display: grid;
+	grid-template-areas: ''
+}
+
+.portfolioOwedToMe {
+	background-color: yellow;
+}
+
+.portfolioIOwe {
+	background-color: red;
+}
+
+.portfolioDefault {
+	background-color: black;
+}
+
+#exp {
+	 width: 200px;
+  	height: 200px;
+  	background-color: black;
+  	clip-path: polygon(0% 100%, 100% 100%, 0% 0%, 100% 100%);
+	/*background-color: black;
+	transform: matrix(0.866,0.5,-0.5,0.866,0,0, 1);*/
+}
+

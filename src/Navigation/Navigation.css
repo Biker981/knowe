@@ -1,0 +1,13 @@
+nav  {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	background-color: "red" ;
+	width: 100%;
+ }
+
+.navItem {
+	margin: 2%;
+
+}
