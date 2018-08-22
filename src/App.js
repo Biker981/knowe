@@ -6,11 +6,17 @@ import SignIn from './SignIn/SignIn';
 import Portfolio from './Portfolio/Portfolio';
 import Navigation from './Navigation/Navigation'
 class App extends Component {
-
+  routeToComponentMap = {//links nav routes to app pages
+    Register: <Register />,
+    SignIn: <SignIn />,
+    Portfolio: <Portfolio />,
+  }
+  
   constructor() {
     super();
     this.state = {
-      route: ''
+      route: '',
+      isSignedIn: false
     }
   }
 
@@ -27,39 +33,15 @@ class App extends Component {
 
 
   render() {
-    const { route } = this.state;
-    switch(route) {
-      case 'Register' :
-        return (
-          <div>
-           <Navigation onRouteChange={this.onRouteChange}/><br/>
-           <Register />
-          </div>
-          );
-      case 'SignIn':
-        return (
-            <div>
-             <Navigation onRouteChange={this.onRouteChange}/><br/>
-             <SignIn />
-            </div>
-          );
-
-      case 'Portfolio' :
-        return (
-          <div>
-           <Navigation onRouteChange={this.onRouteChange}/><br/>
-           <Portfolio />
-          </div>
-          );
-
-       default: 
-         return (
-          <div>
-           <Navigation onRouteChange={this.onRouteChange}/><br/>
-          </div>
-          );
-    }
+    const { route, isSignedIn } = this.state;
+    return(
+      <div>
+        <Navigation onRouteChange={this.onRouteChange}/>
+        {this.routeToComponentMap[route]}
+      </div>);
+   
   }
+
 }
 
 export default App;

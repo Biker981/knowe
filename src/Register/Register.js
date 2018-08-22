@@ -8,7 +8,7 @@ class Register extends React.Component {
 			registerLastName: '',
 			registerEmail: '',
 			registerPassword: '',
-			registerConfirmPassword: ''
+			registerConfirmPassword: '',
 		}
 	}
 
@@ -32,9 +32,27 @@ class Register extends React.Component {
 		this.setState({registerConfirmPassword: event.target.value});
 	}
 
-	submitRegister = () => {
+	passwordIsConfirmed = () => {//check password against confirmation password
+		return this.state.registerPassword === this.state.registerConfirmPassword;
+	}
+	submitRegister = (event) => {
 		//log state
-		console.log(this.state);
+		if (this.passwordIsConfirmed()) {
+			fetch('http://localhost:3001/register', {
+					method: 'post', //get by default
+					headers: {'Content-Type': 'application/json'},
+					body: JSON.stringify({
+						email: this.state.registerEmail,
+						password: this.state.registerPassword,
+						firstname: this.state.registerFirstName,
+						lastname: this.state.registerLastName
+					})
+				})
+			.then(res => console.log(res));
+		} else {
+			 console.log("Password is not confirmed");
+		}
+
 		//Make fetch api call to submit sign in
 	}
 

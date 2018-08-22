@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import './Portfolio.css';
+import SummaryPage from '../SummaryPage/SummaryPage.js';
+import IOwePage from '../IOwePage/IOwePage.js';
+import OwedToMePage from '../OwedToMePage/OwedToMePage.js';
+
 class Portfolio extends Component {
+	//maps route to component so portfoliobody changes on tab click  
      portfolioRouteToComponentMap = {
-		iOwe: <h1>I OWE</h1>,
-		summary: <h1>Summary</h1>,
-		owedToMe: <h1>OWED TO ME</h1>
+		iOwe: <IOwePage />,
+		summary: <SummaryPage/>,
+		owedToMe: <OwedToMePage />,
 	}
 	constructor() {
 		super();
@@ -17,8 +22,6 @@ class Portfolio extends Component {
 		this.setState({portfolioRoute: route}, () => {
 			this.changePortfolioStyle(this.state.portfolioRoute);
 		});
-	
-	
 		
 		
 	}
